@@ -1,0 +1,40 @@
+import matplotlib.pyplot as plt
+import numpy as ny
+import pandas as pd
+
+filename = '#4-10 rate summary.xlsx'
+
+data = pd.read_excel(filename)
+#print(data)
+#fig = plt.figure(dpi=128, figsize=(10,6))
+
+plt.plot(data['循环序号'],data['放电容量(mAh/g)'],linewidth=1, color='k')
+p1 = plt.scatter(data['循环序号'][0:5],data['放电容量(mAh/g)'][0:5], s=50, color='r')
+p2 = plt.scatter(data['循环序号'][5:10],data['放电容量(mAh/g)'][5:10], s=50, color='b')
+p3 = plt.scatter(data['循环序号'][10:15],data['放电容量(mAh/g)'][10:15], s=50, color='g')
+p4 = plt.scatter(data['循环序号'][15:20],data['放电容量(mAh/g)'][15:20], s=50, color='m')
+p5 = plt.scatter(data['循环序号'][20:25],data['放电容量(mAh/g)'][20:25], s=50, color='y')
+p6 = plt.scatter(data['循环序号'][25:30],data['放电容量(mAh/g)'][25:30], s=50, color='r')
+
+#plt.plot(data['Re(Z)/Ohm2'],data['Im(Z)/Ohm2']*-1,linewidth=3, label='1-2', 
+#                 color='m', marker='^', markersize=10)
+#plt.plot(data['Re(Z)/Ohm3'],data['Im(Z)/Ohm3']*-1,linewidth=3, label='2-1', 
+#                 color='b', marker='v', markersize=10)
+#plt.plot(data['Re(Z)/Ohm4'],data['Im(Z)/Ohm4']*-1,linewidth=3, label='2-2', 
+#                 color='c', marker='^', markersize=10)
+
+#title='TGA Si adn Si+C'
+#plt.title(title, fontsize=14)
+plt.legend([p1, p2, p3, p4, p5, p6], ['0.05c', '0.1c', '0.2c', '0.5c', '1.0c','0.1c'], loc='lower left', fontsize=14)
+
+plt.xlabel(r'Cycle number', fontsize=14)
+plt.ylabel(r'Specific capacity (mAh/g)', fontsize=14)
+plt.tick_params(axis='both',which='major', labelsize=14, direction='in') 
+#刻度样式 axis='both','x','y', which='major','minor','both'
+
+#plt.xlim(0,30)
+#plt.ylim(0,4000)
+#plt.xticks(ny.linspace(0,800,5,endpoint=True)) 
+#plt.yticks(ny.linspace(90,110,5,endpoint=True))
+
+plt.show()
