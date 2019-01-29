@@ -1,0 +1,40 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+filename = 'EIS_136.xlsx'
+
+data = pd.read_excel(filename)
+#print(data)
+#fig = plt.figure(dpi=128, figsize=(10,6))
+
+plt.plot(data['Re(Z)/Ohm1'],data['-Im(Z)/Ohm1'],linewidth=3, label='1-1', 
+                 color='r', marker='v', markersize=10)
+plt.plot(data['Re(Z)/Ohm2'],data['-Im(Z)/Ohm2'],linewidth=3, label='1-2', 
+                 color='r', marker='^', markersize=10)
+plt.plot(data['Re(Z)/Ohm3'],data['-Im(Z)/Ohm3'],linewidth=3, label='2-1', 
+                 color='b', marker='v', markersize=10)
+plt.plot(data['Re(Z)/Ohm4'],data['-Im(Z)/Ohm4'],linewidth=3, label='2-2', 
+                 color='b', marker='^', markersize=10)
+plt.plot(data['Re(Z)/Ohm5'],data['-Im(Z)/Ohm5'],linewidth=3, label='3-1', 
+                 color='g', marker='v', markersize=10)
+plt.plot(data['Re(Z)/Ohm6'],data['-Im(Z)/Ohm6'],linewidth=3, label='3-2', 
+                 color='g', marker='^', markersize=10)
+
+#title='TGA Si adn Si+C'
+#plt.title(title, fontsize=14)
+plt.legend(loc='upper left', fontsize=14)
+
+plt.xlabel(r'Re(Z)/Ohm', fontsize=14)
+plt.ylabel(r'-Im(Z)/Ohm', fontsize=14)
+plt.tick_params(axis='both',which='major', labelsize=14) 
+#刻度样式 axis='both','x','y', which='major','minor','both'
+
+#plt.xlim(0,200)
+#plt.ylim(0,200)
+#plt.xticks(ny.linspace(0,800,5,endpoint=True)) 
+#plt.yticks(ny.linspace(90,110,5,endpoint=True))
+
+plt.tick_params(direction='in')
+
+plt.show()
