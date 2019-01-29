@@ -1,0 +1,35 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+filename1 = '#2-2_1st.xlsx'
+filename2 = '#2-2_2nd.xlsx'
+filename3 = '#2-2_3rd.xlsx'
+data1 = pd.read_excel(filename1)
+data2 = pd.read_excel(filename2)
+data3 = pd.read_excel(filename3)
+
+p1, = plt.plot(data1['容量(mAh/g)1'], data1['电压(V)1'], linewidth=3, color='r')
+p2, = plt.plot(data1['容量(mAh/g)2'], data1['电压(V)2'], linewidth=3, color='r')
+p3, = plt.plot(data2['容量(mAh/g)1'], data2['电压(V)1'], linewidth=3, color='b')
+p4, = plt.plot(data2['容量(mAh/g)2'], data2['电压(V)2'], linewidth=3, color='b')
+p5, = plt.plot(data3['容量(mAh/g)1'], data3['电压(V)1'], linewidth=3, color='g')
+p6, = plt.plot(data3['容量(mAh/g)2'], data3['电压(V)2'], linewidth=3, color='g')
+
+plt.legend([p1, p3, p5], ["1st", "2nd", '3rd'], loc='upper right', fontsize=14)
+#plt.legend(loc='upper left', fontsize=14)
+
+
+plt.xlabel(r'Specific capacity (mAh/g)', fontsize=14)
+plt.ylabel(r'Potential (V vs Li/Li+)', fontsize=14)
+plt.tick_params(axis='both',which='major', direction='in', labelsize=14) 
+#刻度样式 axis='both','x','y', which='major','minor','both'
+
+#plt.xlim(-50,3000)
+#plt.ylim(0,2)
+#plt.xticks(np.linspace(10, 3000, 7, endpoint=True)) 
+#plt.yticks(np.linspace(0, 2, 5, endpoint=True))
+# 
+#fig.tight_layout()
+plt.show()
+#plt.savefig('E and H.jpg', bbox_inches='tight', dpi=300)
