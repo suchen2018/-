@@ -1,0 +1,26 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+filename = 'SR_02.xlsx'
+
+data = pd.read_excel(filename)
+
+
+plt.plot(data['Modified LD'],data['Friction'],linewidth=3, label='SR-2', 
+                 color='r',)
+
+plt.legend(loc='upper left', fontsize=14)
+
+plt.xlabel(r'Lateral Displacement (µm)', fontsize=14)
+plt.ylabel(r'Friction', fontsize=14)
+plt.tick_params(axis='both',which='major', labelsize=14) 
+
+plt.xlim(-0.5,10.5)
+plt.ylim(0,1.2)
+plt.xticks(np.linspace(0, 10, 6, endpoint=True)) 
+plt.yticks(np.linspace(0, 1, 6, endpoint=True))
+
+plt.tick_params(direction='in')
+
+plt.show()
