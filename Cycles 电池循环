@@ -1,0 +1,45 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+filename = '#2-2cycle.xlsx'
+#title ='Smaple a1'
+data = pd.read_excel(filename)
+
+fig, ax1 = plt.subplots()
+ax2 = ax1.twinx()
+
+
+#plt.plot(data['Re(Z)/Ohm2'],data['Im(Z)/Ohm2']*-1,linewidth=3, label='1-2', 
+#              color='m', marker='^', markersize=10)
+
+ax1.plot(data['循环序号'],data['放电容量(mAh/g)'], linewidth=1, label='1', 
+              color='r', marker='o', markersize=4)
+
+ax2.plot(data['循环序号'],data['放电容量衰减率（%）'], linewidth=1, label='2', 
+              color='b', marker='o', markersize=4)
+
+
+
+ax1.set_xlabel('Cycle Number', fontsize=12)
+ax1.tick_params(axis='x', direction='in')
+ax1.set_xlim(0,210)
+
+ax1.set_ylabel('Capacity (mAh/g)', fontsize=12, color='r')
+ax1.tick_params(axis='y', direction='in', colors='r', labelcolor="r")
+ax1.set_ylim(0,3000)
+ax1.set_yticks(np.linspace(0, 3000, 7, endpoint=True)) 
+
+ax2.set_ylabel('Efficiency (%)', fontsize=12, color='b')
+ax2.tick_params(direction='in', colors='b')
+ax2.set_ylim(0,110)
+##ax1.set_title('Scores by group and gender')
+#ax1.set_xticks(x + bar_width / 2)
+#ax1.set_xticklabels(label, fontsize=12)
+#ax1.legend(fontsize=12, loc='upper left')
+#ax2.legend(fontsize=12, loc='upper right')
+
+
+#fig.tight_layout()
+plt.show()
+#plt.savefig('E and H.jpg', bbox_inches='tight', dpi=300)
