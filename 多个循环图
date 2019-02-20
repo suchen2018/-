@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Jan 18 14:19:52 2019
+
+This script will create a plot for cycle test
+
+@author: n10027301
+"""
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+filename1 = 'PVDF+CMC+D+DX.xlsx'
+
+data1 = pd.read_excel(filename1)
+
+
+#plt.plot(data1['#2-1-1'],data1['#2-1-2'],linewidth=3, label='PVDF-1', color='r')
+#plt.plot(data1['#2-2-1'],data1['#2-2-2'],linewidth=3, label='PVDF-2', color='r')
+               
+#plt.plot(data1['#4-2-1'],data1['#4-2-2'],linewidth=3, label='CMC-1', color='b')
+plt.plot(data1['#4-3-1'],data1['#4-3-2'],linewidth=3, label='CMC-2', color='b')
+#plt.plot(data1['#4-6-1'],data1['#4-6-2'],linewidth=3, label='CMC-3', color='b')
+#plt.plot(data1['#4-12-1'],data1['#4-12-2'],linewidth=3, label='CMC-4', color='b')
+               
+#plt.plot(data1['#5-1-1'],data1['#5-1-2'],linewidth=3, label='D-1', color='g')
+#plt.plot(data1['#5-2-1'],data1['#5-2-2'],linewidth=3, label='D-2', color='g')
+plt.plot(data1['#5-5-1'],data1['#5-5-2'],linewidth=3, label='D-3', color='g')
+#plt.plot(data1['#5-6-1'],data1['#5-6-2'],linewidth=3, label='D-4', color='g')
+
+#plt.plot(data1['#6-1-1'],data1['#6-1-2'],linewidth=3, label='D1-1', color='c')
+plt.plot(data1['#6-8-1'],data1['#6-8-2'],linewidth=3, label='D1-2', color='c')
+               
+plt.plot(data1['#7-1-1'],data1['#7-1-2'],linewidth=3, label='D5-1', color='m') 
+#plt.plot(data1['#7-8-1'],data1['#7-8-2'],linewidth=3, label='D5-2', color='m') 
+               
+#plt.plot(data1['#8-2-1'],data1['#8-2-2'],linewidth=3, label='D3-1', color='y')   
+#plt.plot(data1['#8-7-1'],data1['#8-7-2'],linewidth=3, label='D3-2', color='y') 
+#plt.plot(data1['#8-8-1'],data1['#8-8-2'],linewidth=3, label='D3-3', color='y') 
+               
+#title='TGA Si adn Si+C'
+#plt.title(title, fontsize=14)
+plt.legend(loc='upper right', fontsize=14)
+
+plt.xlabel(r'Cycle Number', fontsize=14)
+plt.ylabel(r'Specific Capacity (mAh/g)', fontsize=14)
+plt.tick_params(axis='both',which='major', labelsize=14) 
+#刻度样式 axis='both','x','y', which='major','minor','both'
+
+#plt.xlim(-0.1,2.1)
+#plt.ylim(0,1000)
+#plt.xticks(ny.linspace(0,800,5,endpoint=True)) 
+#plt.yticks(ny.linspace(90,110,5,endpoint=True))
+
+plt.tick_params(direction='in')
+
+plt.show()
